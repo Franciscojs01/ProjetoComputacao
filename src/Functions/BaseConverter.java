@@ -2,27 +2,26 @@ package Functions;
 
 public class BaseConverter {
 
-    // Converte de qualquer base para base 10
     public static int toBase10(String n, int b) {
         int result = 0;
         int length = n.length();
 
-        n = n.toUpperCase(); // Para trabalhar com letras maiúsculas
+        n = n.toUpperCase();
 
         for (int i = 0; i < length; i++) {
             char a = n.charAt(i);
             int num;
 
-            // Se for uma letra (A-Z), transforma em número (A = 10, B = 11, etc)
+
             if (a >= 'A' && a <= 'Z') {
-                num = a - 55; // Porque 'A' (65) - 55 = 10
+                num = a - 55;
             } else {
                 num = Character.getNumericValue(a);
             }
 
-            // Verifica se o número é válido para a base
+
             if (num >= b) {
-                return -1; // Retorna -1 para indicar erro (base inválida)
+                return -1;
             }
 
             int e = length - 1 - i;
@@ -32,7 +31,7 @@ public class BaseConverter {
         return result;
     }
 
-    // Converte de base 10 para qualquer base
+
     public static String fromBase10(int n, int b) {
         if (n == 0) {
             return "0";
@@ -49,7 +48,6 @@ public class BaseConverter {
         return result.reverse().toString(); // Inverte porque construiu de trás pra frente
     }
 
-    // Converte de base b1 para base b2
     public static String convertBase(String n, int b1, int b2) {
         int x = 0;
 
@@ -78,20 +76,20 @@ public class BaseConverter {
         String digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
         while (x > 0) {
-            result.insert(0, digits.charAt(x % b2)); // Constrói no começo (pra não precisar inverter depois)
+            result.insert(0, digits.charAt(x % b2));
             x /= b2;
         }
 
         return result.toString();
     }
 
-    // Realiza operação entre dois números em bases diferentes
+
     public static String calculate(String n, int b1, String m, int b2, Integer d, char o) {
         int nBase10 = toBase10(n, b1);
         int mBase10 = toBase10(m, b2);
 
         if (nBase10 == -1 || mBase10 == -1) {
-            return null; // Indica erro de base inválida
+            return null;
         }
 
         int result;
