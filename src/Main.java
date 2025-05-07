@@ -1,11 +1,13 @@
-import Functions.BaseConverter;
 
-import static Functions.BaseConverter.toBase10;
+import static Functions.BaseConverter.*;
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println(toBase10("84A", 16));
-        System.out.println(BaseConverter.convertBase("7A8C", 16, 18));
+        System.out.println(toBase10("A1", 2));
+        System.out.println(fromBase10(26, 16));
+        System.out.println(convertBase("5E90E.EF", 16, 19));
+        System.out.println(calculate("5E90EEF", 19, "37742106", 8, 16, '*' ));
+
 
     }
 }
